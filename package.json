@@ -1,0 +1,29 @@
+{
+  "name": "gopdx_server",
+  "version": "0.1.15",
+  "description": "Server-side code for gopdx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dangrmous/gopdx"
+  },
+  "keywords": [
+    "gopdx",
+    "server"
+  ],
+  "author": "Geoffrey D. Unger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangrmous/gopdx/issues"
+  },
+  "homepage": "https://github.com/dangrmous/gopdx",
+  "dependencies": {
+    "hapi": "^7.5.3",
+    "js-md5": "^0.1.3",
+    "moment": "^2.9.0",
+    "q": "^1.1.2"
+  }
+}
