@@ -9,8 +9,7 @@ var searchStops = require('./searchStops.js');
 
 var stopData = JSON.parse(fs.readFileSync('stops.json'));
 
-var server = new Hapi.Server('104.236.135.28', 80);
-//var server = new Hapi.Server('localhost', 8000);
+var server = new Hapi.Server('localhost', 8000); //change this to ('http://my-server-url', 80) for production
 
 
 var appVersion = configs.appVersion;
