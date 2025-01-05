@@ -6,15 +6,15 @@ var md5 = require('js-md5');
 var fs = require('fs');
 var searchStops = require('./searchStops.js');
 
-//const host = '104.236.132.232';
-//const port = 80;
-const host = 'localhost';
-const port = 8000;
+const host = '209.38.79.121';
+const port = 80;
+//const host = 'localhost';
+//const port = 8000;
 
 var configs =
     {
-        appVersion: '0.1.21',
-        serverVersion: '0.1.21',
+        appVersion: '0.1.23',
+        serverVersion: '0.1.23',
         trimetAppID:process.env.TRIMET_APP_ID,
         openCageAPIKey: process.env.OPENCAGE_API_KEY
     }
