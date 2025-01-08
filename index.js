@@ -6,19 +6,20 @@ var md5 = require('js-md5');
 var fs = require('fs');
 var searchStops = require('./searchStops.js');
 
-const host = '209.38.79.121';
-const port = 80;
-//const host = 'localhost';
-//const port = 8000;
+var host = '209.38.79.121';
+var port = 80;
 
 var configs =
     {
-        appVersion: '0.1.23',
-        serverVersion: '0.1.23',
+        appVersion: '0.1.24',
+        serverVersion: '0.1.24',
         trimetAppID:process.env.TRIMET_APP_ID,
         openCageAPIKey: process.env.OPENCAGE_API_KEY
     }
-
+if (process.env.GOPDX_DEV == 'true'){
+    host = 'localhost';
+    port = 8000;
+}
 var stopData = JSON.parse(fs.readFileSync('stops.json'));
 
 const init = async () => {
