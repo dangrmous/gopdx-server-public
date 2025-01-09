@@ -1,7 +1,0 @@
-var configs =
-{
-    trimetAppID:'',
-    mapQuestAPIKey: ''
-}
-
-module.exports = configs;
