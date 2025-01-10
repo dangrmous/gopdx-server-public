@@ -11,12 +11,12 @@ var port = 80;
 
 var configs =
     {
-        appVersion: '0.1.24',
-        serverVersion: '0.1.24',
+        appVersion: '0.1.25',
+        serverVersion: '0.1.25',
         trimetAppID:process.env.TRIMET_APP_ID,
         openCageAPIKey: process.env.OPENCAGE_API_KEY
     }
-if (process.env.GOPDX_DEV == 'true'){
+if (process.env.GOPDX_DEV == "true"){
     host = 'localhost';
     port = 8000;
 }
@@ -52,7 +52,7 @@ const init = async () => {
                 return trimetAPI.getArrivals(configs, request.params.stopID);
             }
             else {
-                return('Unauthorized');
+                return h.response('Unauthorized').code(403)
             }
         }
     });
@@ -66,7 +66,7 @@ const init = async () => {
                 return openCageAPI.getCoordinates(configs, request.params.streetAddress);
             }
             else {
-                return('Unauthorized');
+                return h.response('Unauthorized').code(403);
             }
         }
     });
@@ -84,7 +84,7 @@ const init = async () => {
                 return trimetAPI.locateStops(configs, coordinates);
             }
             else{
-                return('Unauthorized');
+                return openCageAPI.getCoordinates(configs, request.params.streetAddress);
             }
         }
     });
@@ -110,7 +110,9 @@ const init = async () => {
                         return(JSON.stringify({error:"No stops found."}));
                     }
                     return(JSON.stringify(itemsFound));
-                } else return "Invalid key"
+                } else {
+                    return h.response('Unauthorized').code(403);
+                }
             }
         }
     )
@@ -130,7 +132,9 @@ var serverVersion = configs.serverVersion;
 init();
 
 function checkAuth(key) {
-    return true
+    if (process.env.GOPDX_DEV == "true"){
+        return true
+    }
     var keys = [];
     var now = moment.utc();
     for (var i = 0; i < 10; i++) {
